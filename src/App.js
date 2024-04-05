@@ -43,7 +43,7 @@ class Checklist extends Component {
   render() {
     console.log("Enetered Checklist");
     let tasks = this.props.tasks.map((task) => (
-        <li className="checklist_task">
+        <li key={task.id} className="checklist_task">
           <input type="checkbox" defaultChecked={task.done} />
           {task.name}
           <a href="#" className="check_list--remove" />
@@ -85,19 +85,12 @@ class Card extends Component {
         </div>
       );
     };
-    let sideColor = {
-      position: 'absolute',
-      zIndex: -1,
-      top: 0,
-      bottom: 0,
-      left: 0,
-      width: 7,
+    let color = {
       backgroundColor: this.props.color
-    };
-    
+    }
     return (
       <div className="card">
-        <div style={sideColor} />
+        <div className='sideColor' style={color}/>
         <div className={
           this.state.showDetails? "card_title card_title--is-open" : "card_title"
         } 
@@ -111,7 +104,8 @@ class Card extends Component {
 }
 
 var cards =  cardList.map((card) => {
-  return <Card  id={card.id}
+  return <Card  key={card.id}
+                id={card.id}
                 title={card.title}
                 description={card.description}
                 color={card.color}

@@ -85,3 +85,12 @@
   margin-top: 5px;
   border-radius: 3px;
  }
+
+ .sideColor {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 7px;
+};
